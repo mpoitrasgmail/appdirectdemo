@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+curl -X GET -H "Cache-Control: no-cache" -H "Postman-Token: 892ff647-f2a8-7a45-6516-584f397f410d" "http://localhost:8080/appdirect/subscription/notification/cancel?eventUrl=https://www.acme-marketplace.com/api/integration/v1/events/d15bb36e-5fb5-11e0-8c3c-00262d2cda03"
