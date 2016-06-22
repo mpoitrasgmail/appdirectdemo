@@ -56,6 +56,10 @@ public class SubscriptionNotificationRestController {
         String accountUid = subscriptionChange.getAccount().getAccountIdentifier();
         Account existingAccount = accountRepository.findByAccountUid(accountUid);
 
+        if(existingAccount == null){
+            return new BasicResult("appdirect.subscription.change.account.notFound", "Account for " + accountUid + " cannot be found");
+        }
+
         AccountType accountType = AccountType.valueOf(subscriptionChange.getOrder().getEditionCode());
         existingAccount.setAccountType(accountType);
 
@@ -69,6 +73,10 @@ public class SubscriptionNotificationRestController {
         SubscriptionCancel subscriptionCancel = subscriptionEventsClient.retrieveSubscriptionCancelFrom(appDirectEventUrlValue);
         String accountUid = subscriptionCancel.getAccount().getAccountIdentifier();
         Account existingAccount = accountRepository.findByAccountUid(accountUid);
+
+        if(existingAccount == null){
+            return new BasicResult("appdirect.subscription.change.account.notFound", "Account for " + accountUid + " cannot be found");
+        }
 
         accountRepository.delete(existingAccount);
         return new BasicResult();
