@@ -17,6 +17,10 @@ apply plugin: 'spring-boot'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+compileJava {
+    options.compilerArgs += "-Xlint:unchecked"
+}
+
 ext{
     springBootVersion="1.3.5.RELEASE"
 }

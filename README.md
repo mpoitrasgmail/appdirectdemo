@@ -25,4 +25,5 @@ In order to present my code I have done the following:
 
 
 I could not get real notification from AppDirect (only the test ones which are imcomplete=No OAuth headers, no url to retrieve the event).
-Thus I have created a stub to fake retrieving the events (the actual code is also present, but could not be tested)
+Thus I have created a stub to fake retrieving the events (the actual code is also present, but could not be tested).
+I have also implemented the OAuth Header Verification Filter to verify the request validity, but unfortunately that could not be tested with actual cases from AppDirect since the test requests did not contain it.

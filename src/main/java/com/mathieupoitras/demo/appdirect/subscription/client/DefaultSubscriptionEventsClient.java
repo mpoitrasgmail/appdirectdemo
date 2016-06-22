@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
  * Created by Mathieu Poitras on 2016-06-20.
  */
 @Service
-@Profile("default")
+@Profile("!appdirectStubs")
 public class DefaultSubscriptionEventsClient implements SubscriptionEventsClient {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultSubscriptionEventsClient.class);
