@@ -24,3 +24,5 @@ In order to present my code I have done the following:
 * Created this new Github repository
 
 
+I could not get real notification from AppDirect (only the test ones which are imcomplete=No OAuth headers, no url to retrieve the event).
+Thus I have created a stub to fake retrieving the events (the actual code is also present, but could not be tested)
