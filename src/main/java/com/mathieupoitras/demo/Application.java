@@ -28,6 +28,7 @@ public class Application{
             FilterRegistrationBean registration = new FilterRegistrationBean();
             registration.setFilter(oAuthSignatureVerificationFilter);
             registration.addUrlPatterns("/appdirect/subscription/notification/*");
+            registration.addUrlPatterns("/appdirect/user/notification/*");
             registration.setName("OAuthSignature Filter");
             registration.setOrder(1);
             return registration;

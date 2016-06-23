@@ -1,6 +1,7 @@
 package com.mathieupoitras.demo.account;
 
 import com.mathieupoitras.demo.account.user.User;
+import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -61,9 +62,15 @@ public class Account {
 
     public void addUser(User userToAdd) {
         users.add(userToAdd);
+        userToAdd.setAccount(this);
     }
 
     public void removeUser(User userToRemove) {
         users.remove(userToRemove);
+        userToRemove.setAccount(null);
+    }
+
+    public Set<User> getUsers() {
+        return Collections.unmodifiableSet(users);
     }
 }

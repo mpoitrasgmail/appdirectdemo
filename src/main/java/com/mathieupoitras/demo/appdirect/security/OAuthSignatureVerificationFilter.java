@@ -41,7 +41,7 @@ public class OAuthSignatureVerificationFilter extends GenericFilterBean implemen
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         logger.debug("Entering OAuth Sigature Verification Filter");
         if(applicationContext.getEnvironment().acceptsProfiles(BYPASS_PROFILE)){
-            logger.debug("Bypassing the OAuthSignatureVerificationFilter");
+            logger.warn("Bypassing the OAuthSignatureVerificationFilter");
             chain.doFilter(request, response);
         }else{
             //The following casts are safe as long as the container used implements web compliant servlet. This is our case.

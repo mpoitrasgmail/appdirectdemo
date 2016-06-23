@@ -24,12 +24,16 @@ public class User {
     @JsonIgnore
     private String passwordHash; //This should never be returned, but should be saved
 
-    @ManyToOne
-    @JoinColumn(name = "book_category_id")
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "account_id", nullable = true)
     private Account account;
 
     public User() {
         this.userUid = UUID.randomUUID().toString();
+    }
+
+    public User(String userUid) {
+        this.userUid = userUid;
     }
 
     public String getUsername() {
@@ -51,4 +55,11 @@ public class User {
         return userUid;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 }
