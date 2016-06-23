@@ -1,6 +1,7 @@
 # appdirectdemo
 My AppDirect Coding Challenge demo
 
+# What was integrated?
 This application will integrate with AppDirect. More specifically, with the following events:
 * Subscription Create
 * Subscription Change
@@ -9,50 +10,68 @@ This application will integrate with AppDirect. More specifically, with the foll
 * User Unassign
 * OAuth 1.0 Signature verification
 
-The application is currently running at http://www.mathieupoitras.com.
+# Running using the already deployed instance
+The application is currently running at http://www.mathieupoitras.com. It is running with appdirect stubs and OAuth Verification filter off, please see
 
 The easiest way to exercise the code is simply to run the curl scripts (either on a unix bash or a windows git bash) as follows:
+```bash
 src/test/resources/mathieupoitrascom/subscriptionCreate.sh
+```
+
 OUTPUT:
 {"success":true,"accountIdentifier":"714d2dab-6956-4bc4-8f17-9c8b8a4e8d23"}
 Take the resulting JSON accountIdentifier, and pass it in the next scripts (in this case 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23)
 
+```bash
 src/test/resources/mathieupoitrascom/subscriptionChange.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
 src/test/resources/mathieupoitrascom/assignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
 src/test/resources/mathieupoitrascom/unassignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
 src/test/resources/mathieupoitrascom/subscriptionCancel.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+```
 
 
+# Running using a local development instance
 Alternatively the code can be checked out from:
+```bash
 git clone git@github.com:mpoitrasgmail/appdirectdemo.git
+```
 
 Then build with:
+```bash
 gradlew clean build
+```
 
 Ran with (use run.sh for linux, run.bat for windows):
+```bash
 run.sh
 run.bat
+```
 
 Finally it can be tested with:
 The easiest way to exercise the code is simply to run the curl scripts (either on a unix bash or a windows git bash) as follows:
+```bash
 src/test/resources/mathieupoitrascom/subscriptionCreate.sh
+```
 OUTPUT:
 {"success":true,"accountIdentifier":"714d2dab-6956-4bc4-8f17-9c8b8a4e8d23"}
 Take the resulting JSON accountIdentifier, and pass it in the next scripts (in this case 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23)
 
+```bash
 src/test/resources/mathieupoitrascom/subscriptionChange.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
 src/test/resources/mathieupoitrascom/assignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
 src/test/resources/mathieupoitrascom/unassignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
 src/test/resources/mathieupoitrascom/subscriptionCancel.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+```
 
 
-NOTE:
+# KNOWN LIMITATION NOTE:
 The test instance on AppDirect.com  (https://mathieupoitras-test.byappdirect.com, product Demo) does not send event urls or authentication headers.
 Thus the Ping And Integration tests fail.
 Running the application with no Spring profile (default) and executing actual valid calls from AppDirect.com should be successful but could not be tested.
 
 
 
+# Work Explained
 Below I have documented some of the things I have done to
 
 In order to present my code I have done the following:
