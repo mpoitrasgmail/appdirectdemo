@@ -52,7 +52,7 @@ run.bat
 Finally it can be tested with:
 The easiest way to exercise the code is simply to run the curl scripts (either on a unix bash or a windows git bash) as follows:
 ```bash
-src/test/resources/mathieupoitrascom/subscriptionCreate.sh
+src/test/resources/local/subscriptionCreate.sh
 ```
 OUTPUT:
 ```bash
@@ -72,6 +72,10 @@ src/test/resources/local/subscriptionCancel.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8
 The test instance on AppDirect.com  (https://mathieupoitras-test.byappdirect.com, product Demo) does not send event urls or authentication headers.
 Thus the Ping And Integration tests fail at this time (I had them working, but then As I implemented more according to documentation, they failed).
 Running the application with no Spring profile (default) and executing actual valid calls from AppDirect.com should be successful but could not be tested.
+
+Error handling is relatively minimal and better error response should be provided.
+There is no actual application with a UI and a MVC pattern or otherwise. I preferred to focus on the integration requested.
+Security best practices are not necessarily followed (the secrets are stored in the properties file). I have redacted them in source control, but this is not optimal.
 
 
 
