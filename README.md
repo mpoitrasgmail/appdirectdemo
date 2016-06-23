@@ -19,7 +19,9 @@ src/test/resources/mathieupoitrascom/subscriptionCreate.sh
 ```
 
 OUTPUT:
+```bash
 {"success":true,"accountIdentifier":"714d2dab-6956-4bc4-8f17-9c8b8a4e8d23"}
+```
 Take the resulting JSON accountIdentifier, and pass it in the next scripts (in this case 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23)
 
 ```bash
@@ -53,20 +55,23 @@ The easiest way to exercise the code is simply to run the curl scripts (either o
 src/test/resources/mathieupoitrascom/subscriptionCreate.sh
 ```
 OUTPUT:
+OUTPUT:
+```bash
 {"success":true,"accountIdentifier":"714d2dab-6956-4bc4-8f17-9c8b8a4e8d23"}
+```
 Take the resulting JSON accountIdentifier, and pass it in the next scripts (in this case 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23)
 
 ```bash
-src/test/resources/mathieupoitrascom/subscriptionChange.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
-src/test/resources/mathieupoitrascom/assignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
-src/test/resources/mathieupoitrascom/unassignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
-src/test/resources/mathieupoitrascom/subscriptionCancel.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+src/test/resources/local/subscriptionChange.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+src/test/resources/local/assignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
+src/test/resources/local/unassignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
+src/test/resources/local/subscriptionCancel.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
 ```
 
 
 # KNOWN LIMITATION NOTE:
 The test instance on AppDirect.com  (https://mathieupoitras-test.byappdirect.com, product Demo) does not send event urls or authentication headers.
-Thus the Ping And Integration tests fail.
+Thus the Ping And Integration tests fail at this time (I had them working, but then As I implemented more according to documentation, they failed).
 Running the application with no Spring profile (default) and executing actual valid calls from AppDirect.com should be successful but could not be tested.
 
 
