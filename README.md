@@ -1,6 +1,60 @@
 # appdirectdemo
 My AppDirect Coding Challenge demo
 
+This application will integrate with AppDirect. More specifically, with the following events:
+* Subscription Create
+* Subscription Change
+* Subscription Cancel
+* User Assign
+* User Unassign
+* OAuth 1.0 Signature verification
+
+The application is currently running at http://www.mathieupoitras.com.
+
+The easiest way to exercise the code is simply to run the curl scripts (either on a unix bash or a windows git bash) as follows:
+src/test/resources/mathieupoitrascom/subscriptionCreate.sh
+OUTPUT:
+{"success":true,"accountIdentifier":"714d2dab-6956-4bc4-8f17-9c8b8a4e8d23"}
+Take the resulting JSON accountIdentifier, and pass it in the next scripts (in this case 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23)
+
+src/test/resources/mathieupoitrascom/subscriptionChange.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+src/test/resources/mathieupoitrascom/assignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
+src/test/resources/mathieupoitrascom/unassignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
+src/test/resources/mathieupoitrascom/subscriptionCancel.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+
+
+Alternatively the code can be checked out from:
+git clone git@github.com:mpoitrasgmail/appdirectdemo.git
+
+Then build with:
+gradlew clean build
+
+Ran with (use run.sh for linux, run.bat for windows):
+run.sh
+run.bat
+
+Finally it can be tested with:
+The easiest way to exercise the code is simply to run the curl scripts (either on a unix bash or a windows git bash) as follows:
+src/test/resources/mathieupoitrascom/subscriptionCreate.sh
+OUTPUT:
+{"success":true,"accountIdentifier":"714d2dab-6956-4bc4-8f17-9c8b8a4e8d23"}
+Take the resulting JSON accountIdentifier, and pass it in the next scripts (in this case 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23)
+
+src/test/resources/mathieupoitrascom/subscriptionChange.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+src/test/resources/mathieupoitrascom/assignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
+src/test/resources/mathieupoitrascom/unassignUser.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23 ABCFGFDFGFDGH superuser@hello.com
+src/test/resources/mathieupoitrascom/subscriptionCancel.sh 714d2dab-6956-4bc4-8f17-9c8b8a4e8d23
+
+
+NOTE:
+The test instance on AppDirect.com  (https://mathieupoitras-test.byappdirect.com, product Demo) does not send event urls or authentication headers.
+Thus the Ping And Integration tests fail.
+Running the application with no Spring profile (default) and executing actual valid calls from AppDirect.com should be successful but could not be tested.
+
+
+
+Below I have documented some of the things I have done to
+
 In order to present my code I have done the following:
 * Register a domain name (mathieupoitras.com)
 * Deployed a new server (using Linode)
@@ -22,8 +76,6 @@ In order to present my code I have done the following:
 * Configured the authorized_keys on the server to use that key
 * Configured my development machine to use that key
 * Created this new Github repository
-
-
-I could not get real notification from AppDirect (only the test ones which are imcomplete=No OAuth headers, no url to retrieve the event).
-Thus I have created a stub to fake retrieving the events (the actual code is also present, but could not be tested).
-I have also implemented the OAuth Header Verification Filter to verify the request validity, but unfortunately that could not be tested with actual cases from AppDirect since the test requests did not contain it.
+* Coded the actual application
+* Added utility scripts
+* Promoted it to my server

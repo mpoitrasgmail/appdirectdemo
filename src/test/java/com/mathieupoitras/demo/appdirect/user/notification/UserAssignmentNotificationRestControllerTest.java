@@ -6,7 +6,7 @@ import com.mathieupoitras.demo.account.user.User;
 import com.mathieupoitras.demo.account.user.UserRepository;
 import com.mathieupoitras.demo.appdirect.user.client.UserAssignment;
 import com.mathieupoitras.demo.appdirect.user.client.UserAssignmentBuilder;
-import com.mathieupoitras.demo.appdirect.user.client.UserEventsClient;
+import com.mathieupoitras.demo.appdirect.user.client.DefaultUserEventsClient;
 import com.mathieupoitras.demo.appdirect.user.client.UserUnassignment;
 import com.mathieupoitras.demo.appdirect.user.client.UserUnassignmentBuilder;
 import org.junit.Before;
@@ -36,7 +36,7 @@ public class UserAssignmentNotificationRestControllerTest {
     @Mock
     private UserRepository userRepositoryMock;
     @Mock
-    private UserEventsClient userEventsClientMock;
+    private DefaultUserEventsClient userEventsClientMock;
 
     @InjectMocks
     private UserAssignmentNotificationRestController controllerUnderTest;

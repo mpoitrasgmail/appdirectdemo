@@ -33,6 +33,7 @@ dependencies {
     compile "com.h2database:h2:1.4.192"
     compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
     compile "oauth.signpost:signpost-core:1.2.1.2"
+    compile "org.apache.httpcomponents:httpclient:4.5.2"
     compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
     compile "org.springframework.boot:spring-boot-devtools:$springBootVersion"
     testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"

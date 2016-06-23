@@ -54,7 +54,7 @@ public class UserAssignmentNotificationRestController {
         String userUuid = appDirectUser.getUuid();
         User userForUid = userRepository.findByUserUid(userUuid);
         if(userForUid == null){
-            User userToBeCreated = new User();
+            User userToBeCreated = new User(userUuid);
             userToBeCreated.setUsername(appDirectUser.getEmail());
             userToBeCreated.setAccount(existingAccount);
 
