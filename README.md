@@ -38,7 +38,7 @@ Alternatively the code can be checked out from:
 git clone git@github.com:mpoitrasgmail/appdirectdemo.git
 ```
 
-Then build with:
+Then build with (require a JDK 8 to be installed):
 ```bash
 gradlew clean build
 ```
@@ -54,7 +54,6 @@ The easiest way to exercise the code is simply to run the curl scripts (either o
 ```bash
 src/test/resources/mathieupoitrascom/subscriptionCreate.sh
 ```
-OUTPUT:
 OUTPUT:
 ```bash
 {"success":true,"accountIdentifier":"714d2dab-6956-4bc4-8f17-9c8b8a4e8d23"}
